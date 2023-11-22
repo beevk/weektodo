@@ -155,9 +155,9 @@
     <toast-message id="taskDuplicated" :text="$t('todoDetails.taskDuplicated')"></toast-message>
   </div>
 
-  <comfirm-modal :id="'removeReModalToDoDetails'" :title="$t('ui.removeRepeatingTask')"
+  <confirm-modal :id="'removeReModalToDoDetails'" :title="$t('ui.removeRepeatingTask')"
     :text="$t('ui.repeatingTaskRemoveConfirm')" :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeAllComfirmed"
-    @on-cancel="removeAllCanceled"></comfirm-modal>
+    @on-cancel="removeAllCanceled"></confirm-modal>
 </template>
 
 <script>
@@ -175,7 +175,7 @@ import notifications from "../../helpers/notifications";
 import repeatingEventHelper from "../../helpers/repeatingEvents.js";
 import languageHelper from "../../helpers/languageHelper.js"
 import repeatingEventRepository from "../../repositories/repeatingEventRepository";
-import comfirmModal from "../../components/comfirmModal.vue";
+import confirmModal from "../../components/confirmModal.vue";
 import linkifyStr from 'linkify-string';
 import ClickHandler from "@manuelernestog/click-handler";
 import tasksHelper from "../../helpers/tasksHelper";
@@ -222,7 +222,7 @@ export default {
     toastMessage,
     timePicker,
     repeatingEvent,
-    comfirmModal
+    confirmModal
   },
   methods: {
     removeSubTask: function (index) {

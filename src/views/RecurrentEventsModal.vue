@@ -29,16 +29,16 @@
     </div>
   </div>
 
-  <comfirm-modal :id="'removeReModal'" :title="$t('ui.removeRepeatingTask')" :text="$t('ui.repeatingTaskRemoveConfirm')"
-    :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeRepeatingTaskComfirmed"
-    @on-cancel="removeRepeatingTaskCanceled"></comfirm-modal>
+  <confirm-modal :id="'removeReModal'" :title="$t('ui.removeRepeatingTask')" :text="$t('ui.repeatingTaskRemoveConfirm')"
+    :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeRepeatingTaskConfirmed"
+    @on-cancel="removeRepeatingTaskCanceled"></confirm-modal>
 </template>
 
 <script>
 import { Toast, Modal } from "bootstrap";
 import repeatingEventHelper from "../helpers/repeatingEvents.js";
 import repeatingEventRepository from "../repositories/repeatingEventRepository";
-import comfirmModal from "../components/comfirmModal.vue";
+import confirmModal from "../components/confirmModal.vue";
 import moment from "moment";
 
 
@@ -46,7 +46,7 @@ import moment from "moment";
 export default {
   name: "RecurrentEventsModal",
   components: {
-    comfirmModal
+    confirmModal
   },
   data() {
     return {
@@ -55,7 +55,7 @@ export default {
     };
   },
   methods: {
-    frecuency: function (task) {
+    frequency: function (task) {
       switch (task.type) {
         case "0":
           return this.$t("todoDetails.yearly") + ' / ' + moment(task.start_date).locale(this.language).format("MMM Do");
@@ -76,7 +76,7 @@ export default {
       let modal = new Modal(document.getElementById("removeReModal"), { backdrop: "static", });
       modal.show();
     },
-    removeRepeatingTaskComfirmed: function () {
+    removeRepeatingTaskConfirmed: function () {
       repeatingEventRepository.remove(this.idToRemove);
       this.$store.commit("removeRepeatingEvent", this.idToRemove);
       this.$store.getters.selectedDates.forEach((date) => {

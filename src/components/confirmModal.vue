@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "comfirmModal",
+  name: "confirmModal",
   props: {
     id: { required: true },
     title: { required: true },

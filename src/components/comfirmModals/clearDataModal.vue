@@ -1,16 +1,16 @@
 <template>
-  <comfirm-modal :id="'clearDataModal'" :title="$t('settings.clearData')" :text="$t('settings.clearDataDetails')"
+  <confirm-modal :id="'clearDataModal'" :title="$t('settings.clearData')" :text="$t('settings.clearDataDetails')"
     :ico="'bi-x-circle'" :okText="$t('settings.clearData')" @on-ok="clearData">
-  </comfirm-modal>
+  </confirm-modal>
 </template>
 <script>
-import comfirmModal from "../../components/comfirmModal.vue";
+import confirmModal from "../confirmModal.vue";
 import exportTool from "../../helpers/exportTool";
 
 export default {
   name: "clearDataModal",
   components: {
-    comfirmModal
+    confirmModal
   },
   methods: {
     clearData: function () {

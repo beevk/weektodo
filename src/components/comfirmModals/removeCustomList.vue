@@ -1,19 +1,19 @@
 <template>
-  <comfirm-modal :id="'customListRemoveModal'" :title="$t('ui.rmList')" :text="$t('ui.rmListConfirm') +' '+ listId+ '?'"
+  <confirm-modal :id="'customListRemoveModal'" :title="$t('ui.rmList')" :text="$t('ui.rmListConfirm') +' '+ listId+ '?'"
     :ico="'bi-x-circle'" :okText="$t('ui.remove')" @on-ok="removeCustomList">
-  </comfirm-modal>
+  </confirm-modal>
 </template>
 
 <script>
 import { Modal } from 'bootstrap'
 import customToDoListIdsRepository from "../../repositories/customToDoListIdsRepository";
 import toDoListRepository from "../../repositories/toDoListRepository";
-import comfirmModal from "../../components/comfirmModal.vue";
+import confirmModal from "../confirmModal.vue";
 
 export default {
   name: "removeCustomList",
   components: {
-    comfirmModal
+    confirmModal
   },
   computed: {
     listId: function () {
