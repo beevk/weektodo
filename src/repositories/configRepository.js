@@ -5,6 +5,7 @@ import moment from "moment";
 export default {
   load() {
     let config = storageRepository.get("config");
+    const defaultColumns = window.screen.width < 600 ? 1 : 5;
     if (config) {
       return config;
     } else {
@@ -16,8 +17,8 @@ export default {
         language: "en",
         version: version_json.version,
         checkUpdates: true,
-        columns: 5,
-        customColumns: 5,
+        columns: defaultColumns,
+        customColumns: defaultColumns,
         zoom: 100,
         calendarHeight: "calc(50% - 50px)",
         notificationOnStartup: true,
