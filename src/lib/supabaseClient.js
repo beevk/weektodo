@@ -1,9 +1,15 @@
-// Import the library
 import { createClient } from '@supabase/supabase-js';
 
 
-// Create a client
 const supabaseUrl = process.env.VUE_APP_SUPABASE_URL;
 const supabaseKey = process.env.VUE_APP_SUPABASE_KEY;
 
-export const supabaseClient = createClient(supabaseUrl, supabaseKey);
+let supabaseClient;
+
+try {
+    supabaseClient = createClient(supabaseUrl, supabaseKey);
+} catch (e) {
+   console.log("Error creating Supabase client:", e);
+}
+
+export default supabaseClient;
